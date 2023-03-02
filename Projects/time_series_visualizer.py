@@ -5,7 +5,7 @@ from pandas.plotting import register_matplotlib_converters
 register_matplotlib_converters()
 
 # Import data (Make sure to parse dates. Consider setting index column to 'date'.)
-df = pd.read_csv('/home/vinny/Code/Python/data_analysis_cert/Projects/fcc-forum-pageviews.csv', parse_dates=['date'], index_col='date')
+df = pd.read_csv('Projects/fcc-forum-pageviews.csv', parse_dates=['date'], index_col='date')
 
 # Clean data
 df = df.loc[(df['value'] <= df['value'].quantile(0.975)) & (df['value'] >= df['value'].quantile(0.025))]
@@ -46,6 +46,7 @@ def draw_bar_plot():
     fig = df_bar.plot(kind='bar', figsize=(10,6))
     plt.xlabel('Years')
     plt.ylabel('Average Page Views')
+    fig = fig.figure
 
 
 
